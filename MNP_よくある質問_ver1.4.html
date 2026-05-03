@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNP よくある質問 Ver.1.4</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:     #0f2040;
+    --blue:     #1e5fbe;
+    --blue-lt:  #e8f0fc;
+    --blue-bdr: #a8c4f0;
+    --green:    #0a6e50;
+    --green-lt: #e6f5f0;
+    --green-bdr:#7dcbb8;
+    --red:      #c0392b;
+    --red-lt:   #fef0ee;
+    --red-bdr:  #f5a09a;
+    --amber:    #8a5500;
+    --amber-lt: #fff8e6;
+    --amber-bdr:#f5c46b;
+    --gray:     #555;
+    --gray-lt:  #f5f5f0;
+    --text:     #1a1a1a;
+    --muted:    #666;
+    --bg:       #f4f4ef;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .wrapper { max-width: 720px; margin: 0 auto; padding: 36px 20px 60px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0f2040 0%, #1a5cbf 100%);
+    border-radius: 16px;
+    padding: 36px 40px 30px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content:'';
+    position:absolute;
+    right:-50px; bottom:-50px;
+    width:200px; height:200px;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+  }
+  .hero-label {
+    display:inline-block;
+    background:rgba(255,255,255,.18);
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    padding:4px 14px;
+    border-radius:20px;
+    letter-spacing:1px;
+    border:1px solid rgba(255,255,255,.25);
+    margin-bottom:12px;
+  }
+  .hero-title {
+    font-size:26px;
+    font-weight:700;
+    color:#fff;
+    line-height:1.35;
+    margin-bottom:8px;
+  }
+  .hero-meta {
+    font-size:12px;
+    color:rgba(255,255,255,.6);
+  }
+
+  /* ── SECTION BLOCK ── */
+  .section {
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #e0e0da;
+    overflow:hidden;
+    margin-bottom:20px;
+  }
+  .section-head {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 20px;
+    border-bottom:2px solid;
+  }
+  .section-head.blue   { background:var(--blue-lt);  border-color:var(--blue-bdr); }
+  .section-head.green  { background:var(--green-lt); border-color:var(--green-bdr); }
+  .section-head.amber  { background:var(--amber-lt); border-color:var(--amber-bdr); }
+  .section-head.red    { background:var(--red-lt);   border-color:var(--red-bdr); }
+  .section-head.gray   { background:var(--gray-lt);  border-color:#d0d0ca; }
+
+  .section-icon {
+    width:32px; height:32px;
+    border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px;
+    flex-shrink:0;
+  }
+  .section-icon.blue   { background:var(--blue);  }
+  .section-icon.green  { background:var(--green); }
+  .section-icon.amber  { background:var(--amber); }
+  .section-icon.red    { background:var(--red);   }
+  .section-icon.gray   { background:#888; }
+
+  .section-label {
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.05em;
+  }
+  .section-label.blue   { color:var(--navy);  }
+  .section-label.green  { color:var(--green); }
+  .section-label.amber  { color:var(--amber); }
+  .section-label.red    { color:var(--red);   }
+  .section-label.gray   { color:#444; }
+
+  /* ── QA ITEM ── */
+  .qa-list { padding: 0 20px 4px; }
+  .qa-item { padding: 16px 0; border-bottom: 1px solid #f0f0ea; }
+  .qa-item:last-child { border-bottom: none; }
+
+  .q-row {
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .q-badge {
+    width:24px; height:24px;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:900;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    margin-top:1px;
+  }
+  .q-badge.blue  { background:var(--blue);  color:#fff; }
+  .q-badge.green { background:var(--green); color:#fff; }
+  .q-badge.amber { background:var(--amber); color:#fff; }
+  .q-badge.red   { background:var(--red);   color:#fff; }
+  .q-badge.gray  { background:#888;         color:#fff; }
+
+  .q-text {
+    font-size:14px;
+    font-weight:700;
+    color:var(--text);
+    line-height:1.5;
+  }
+
+  .a-row {
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-left:34px;
+  }
+  .a-badge {
+    font-size:11px;
+    font-weight:700;
+    color:#fff;
+    background:var(--green);
+    padding:2px 8px;
+    border-radius:999px;
+    flex-shrink:0;
+    margin-top:2px;
+  }
+  .a-content { font-size:13.5px; color:var(--muted); line-height:1.85; flex:1; }
+  .a-content strong { color:var(--text); font-weight:700; }
+  .a-content .em   { color:var(--blue);  font-weight:700; }
+  .a-content .em-r { color:var(--red);   font-weight:700; }
+  .a-content .em-g { color:var(--green); font-weight:700; }
+
+  /* ── NOTES / ALERTS ── */
+  .note-block { margin-left:34px; margin-top:10px; }
+  .note {
+    border-left:3px solid;
+    border-radius:0 8px 8px 0;
+    padding:9px 14px;
+    margin-top:8px;
+    font-size:12.5px;
+    line-height:1.8;
+  }
+  .note.blue   { border-color:var(--blue);      background:var(--blue-lt);  color:#1a3a7a; }
+  .note.green  { border-color:var(--green);     background:var(--green-lt); color:var(--green); }
+  .note.amber  { border-color:var(--amber-bdr); background:var(--amber-lt); color:var(--amber); }
+  .note.red    { border-color:var(--red);       background:var(--red-lt);   color:#8b2020; }
+  .note.gray   { border-color:#bbb;             background:var(--gray-lt);  color:#555; }
+  .note strong { font-weight:700; }
+
+  /* ── CHIPS ── */
+  .chip-row { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+  .chip {
+    font-size:11.5px; font-weight:700;
+    padding:3px 12px;
+    border-radius:999px;
+    border:1px solid;
+  }
+  .chip.blue   { background:var(--blue-lt);  border-color:var(--blue-bdr);  color:var(--blue);  }
+  .chip.green  { background:var(--green-lt); border-color:var(--green-bdr); color:var(--green); }
+  .chip.red    { background:var(--red-lt);   border-color:var(--red-bdr);   color:var(--red);   }
+  .chip.amber  { background:var(--amber-lt); border-color:var(--amber-bdr); color:var(--amber); }
+
+  /* ── SPECIAL CARD ── */
+  .special-card {
+    border-radius:12px;
+    padding:14px 18px;
+    margin-top:10px;
+    font-size:13px;
+    line-height:1.85;
+    border:1.5px solid;
+  }
+  .special-card.blue  { background:var(--blue-lt);  border-color:var(--blue-bdr);  color:#1a3a7a; }
+  .special-card.green { background:var(--green-lt); border-color:var(--green-bdr); color:var(--green); }
+  .special-card.amber { background:var(--amber-lt); border-color:var(--amber-bdr); color:var(--amber); }
+  .special-card.red   { background:var(--red-lt);   border-color:var(--red-bdr);   color:#8b2020; }
+  .special-card .card-title {
+    font-weight:700; font-size:12px; letter-spacing:.08em; margin-bottom:6px;
+  }
+
+  /* ── LINK BTN ── */
+  .link-btn {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:#06C755;
+    color:#fff;
+    font-size:12.5px;
+    font-weight:700;
+    padding:7px 16px;
+    border-radius:8px;
+    text-decoration:none;
+    margin-top:8px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align:center;
+    font-size:11.5px;
+    color:#aaa;
+    margin-top:36px;
+    padding-top:20px;
+    border-top:1px solid #e0e0da;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">📲 MNP 1 DAY CAMP</div>
+  <div class="hero-title">よくある質問<br>Q&amp;A ガイド</div>
+  <div class="hero-meta">Ver. 1.4 ／ 2024年4月6日更新</div>
+</div>
+
+
+<!-- ===== SECTION 1: 案件の準備 ===== -->
+<div class="section">
+  <div class="section-head blue">
+    <div class="section-icon blue">📋</div>
+    <div class="section-label blue">案件の準備について</div>
+  </div>
+  <div class="qa-list">
+
+    <!-- Q1 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge blue">Q</div>
+        <div class="q-text">普段使用の回線を乗り換えに使いますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content"><span class="em-r">使用しません！</span><br>普段使いの回線はそのままにしておいてください。乗り換え専用の弾（SIM）を別途ご用意します。</div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge blue">Q</div>
+        <div class="q-text">自分のスマホがeSIM未対応の場合、どうすればいいですか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">以下の方法で対応できます。</div>
+      </div>
+      <div class="note-block">
+        <div class="note blue">
+          ✅ <strong>対策①</strong>　同居者のスマホを代用する<br>
+          ✅ <strong>対策②</strong>　楽天モバイルの場合、ショップで物理SIMとして作成してもらう
+        </div>
+        <div class="chip-row">
+          <span class="chip red">eSIMのみ対応</span>
+          <span class="chip blue">楽天モバイル</span>
+          <span class="chip blue">povo</span>
+          <span class="chip blue">IIJ</span>
+        </div>
+        <div class="note amber">⚠️ eSIM未対応の端末をお持ちの場合は、事前にご連絡ください。</div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge blue">Q</div>
+        <div class="q-text">余っている契約中の回線は、乗り換えに使えますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content"><span class="em-g">もちろん使えます！</span><br>余っている回線をそのまま弾として活用できます。</div>
+      </div>
+      <div class="note-block">
+        <div class="note amber">📩 使用する場合は事前にご連絡ください。</div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge blue">Q</div>
+        <div class="q-text">ブラックでも案件に参加できますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">ブラックの種類によって異なります。</div>
+      </div>
+      <div class="note-block">
+        <div class="note green">✅ <strong>金融ブラックの場合</strong>　→ 基本的に参加可（案件による）</div>
+        <div class="note amber">
+          ⚠️ <strong>キャリアブラック（携帯トラブル）の場合</strong><br>
+          例：ドコモで1年前に滞納したまま放置<br>
+          → ドコモ案件は<strong>実践不可</strong>（返済後に参加可能）<br>
+          → ドコモ系列クレカ（Dカード等）の滞納も実践不可
+        </div>
+        <div class="note red">❌ <strong>極度の金融・キャリアブラックの場合</strong>　→ どのキャリアも審査が通らない可能性があります</div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge blue">Q</div>
+        <div class="q-text">案件は詐欺ではないですか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content"><span class="em-g">一切そのようなことはございません。</span><br>ただし、MNP案件を装った詐欺業者が存在しますのでご注意ください。</div>
+      </div>
+      <div class="note-block">
+        <div class="note red">
+          🚨 <strong>以下に該当する業者にはご注意ください</strong><br>
+          ⚠ 端末代金を払わせた後、連絡が取れなくなる（飛ばし詐欺）<br>
+          ⚠ 毎回SIMを回収し、個人情報を抜き取る詐欺<br>
+          ⚠ SIMを回収して悪用する詐欺
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 ★ -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge blue">Q</div>
+        <div class="q-text">⭐ 利用者登録の書類とは何ですか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">主に<strong>AU案件・ワイモバイル案件</strong>の実践時に必要な書類です。</div>
+      </div>
+      <div class="note-block">
+        <div class="special-card blue">
+          <div class="card-title">📋 利用者登録の仕組み</div>
+          AU・ワイモバイルは、<strong>自分名義で契約できるのは2回線まで</strong>です。<br>
+          そこで、<strong>同苗字 または 同住所</strong>の方を「利用者」として登録することで、3回線目以降の契約が可能になります。
+        </div>
+        <div class="note blue">
+          📄 <strong>必要書類</strong><br>
+          ・利用者となる方の<strong>身分証コピー</strong><br>
+          ・関西のワイモバイル案件では<strong>戸籍謄本または住民票の写し</strong>が必要な場合あり
+        </div>
+        <div class="note green">
+          ✅ <strong>安心ポイント</strong><br>
+          ・利用者に連絡がいくことは一切ありません<br>
+          ・郵送物が届くことも一切ありません<br>
+          ・利用者が将来携帯を契約する際に支障が出ることもありません
+        </div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge blue">Q</div>
+        <div class="q-text">案件・場所はいつ決まりますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">基本的に<strong>木曜日・金曜日</strong>に案内されます。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ===== SECTION 2: 楽天エラー ===== -->
+<div class="section">
+  <div class="section-head amber">
+    <div class="section-icon amber">📱</div>
+    <div class="section-label amber">楽天モバイル作成のエラーについて</div>
+  </div>
+  <div class="qa-list">
+
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge amber">Q</div>
+        <div class="q-text">AIかんたん本人確認（eKYC）でエラーが出て完了できません</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">エラーの種類ごとに対処方法があります。</div>
+      </div>
+      <div class="note-block">
+        <div class="note blue">
+          🔵 <strong>画面が固まる・録画が始まらない場合</strong><br>
+          → 端末を再起動する<br>
+          → 別端末でログインして再度試みる<br>
+          → ブラウザを変えて試す（Google Chrome・Safari・Firefox 等）
+        </div>
+        <div class="note amber">
+          🟡 <strong>全行程終了後「申し込みに失敗しました」と表示される場合</strong><br>
+          → 楽天アカウントの登録情報（住所・生年月日等）と本人書類の情報が<strong>一致していない</strong>可能性があります<br>
+          → 登録情報を本人書類と一致させてから再試行してください
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ===== SECTION 3: 楽天間に合わない ===== -->
+<div class="section">
+  <div class="section-head green">
+    <div class="section-icon green">⚡</div>
+    <div class="section-label green">楽天モバイルが間に合わない場合</div>
+  </div>
+  <div class="qa-list">
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge green">Q</div>
+        <div class="q-text">楽天モバイルの作成が間に合わない場合はどうしますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">即日発行対応の乗り換え専用<strong>「ポケSIM」</strong>で代用します。</div>
+      </div>
+      <div class="note-block">
+        <div class="special-card green">
+          <div class="card-title">📦 ポケSIM 料金案内</div>
+          通常料金：<strong>3,850円 / 1回線</strong><br>
+          緊急対応：<strong>4,950円 / 1回線</strong>（前日・当日申請）<br>
+          注文上限：<strong>最大5回線 / 月</strong>
+        </div>
+        <a class="link-btn" href="https://lin.ee/qIj32qk" target="_blank">💬 LINEで申し込む → https://lin.ee/qIj32qk</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== SECTION 4: 入金 ===== -->
+<div class="section">
+  <div class="section-head blue">
+    <div class="section-icon blue">💴</div>
+    <div class="section-label blue">入金されるお金について</div>
+  </div>
+  <div class="qa-list">
+
+    <!-- Q通信費 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge blue">Q</div>
+        <div class="q-text">通信費はいつ振り込まれますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content"><strong>契約の翌月末</strong>に振り込まれます。</div>
+      </div>
+      <div class="note-block">
+        <div class="note amber">
+          ⚠️ <strong>差額返金が発生するケース</strong><br>
+          例）5万円CBがご自身の口座に振り込まれる案件で通信費が3万円の場合<br>
+          　　5万円 − 3万円 ＝ <strong>差額 2万円を運営へ返金</strong>していただく必要があります
+        </div>
+      </div>
+    </div>
+
+    <!-- Q端末代 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge blue">Q</div>
+        <div class="q-text">現地で支払った端末代はいつ支払っていただけますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content"><strong>契約の翌月末</strong>に通信費と一緒に振り込みます。</div>
+      </div>
+    </div>
+
+    <!-- Q交通費 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge blue">Q</div>
+        <div class="q-text">交通費は支給されますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content"><span class="em-g">報酬とは別に支給します。</span><br>電車・バスの実費で算出します（上限金額あり）。</div>
+      </div>
+      <div class="note-block">
+        <div class="note red">❌ 審査落ち等で<strong>契約回線数が0回線</strong>の場合は交通費を支給できません。</div>
+      </div>
+    </div>
+
+    <!-- Q審査落ち -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge blue">Q</div>
+        <div class="q-text">審査落ちで契約不可になった場合の交通費はどうなりますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">理由によって異なります。</div>
+      </div>
+      <div class="note-block">
+        <div class="note green">✅ <strong>運営の不手際</strong>による契約不可 → <strong>運営が負担</strong></div>
+        <div class="note amber">⚠️ <strong>ご本人の信用情報</strong>による審査落ち → <strong>ご自身で負担</strong></div>
+        <div class="note amber">⚠️ <strong>過去の滞納等</strong>による実践不可 → <strong>ご自身で負担</strong></div>
+        <div class="note gray">📌 案件参加の時点で上記に同意いただいたものとして案内させていただきます。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ===== SECTION 5: 来店中 ===== -->
+<div class="section">
+  <div class="section-head green">
+    <div class="section-icon green">🏪</div>
+    <div class="section-label green">来店中の質問について</div>
+  </div>
+  <div class="qa-list">
+
+    <!-- Q当日お金 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge green">Q</div>
+        <div class="q-text">当日かかるお金はありますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">ショップでの<strong>端末購入費用</strong>が発生する場合があります。</div>
+      </div>
+      <div class="note-block">
+        <div class="note blue">
+          📱 基本は<strong>1円機種</strong>ですが、案件によっては<strong>13,500円</strong>程度かかる場合もあります。<br>
+          事前にご確認ください。
+        </div>
+      </div>
+    </div>
+
+    <!-- Q家族代理 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge green">Q</div>
+        <div class="q-text">家族の分も自分だけの来店で案件できますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content"><strong>ドコモ案件のみ</strong>可能です！<br>ドコモには<strong>「代理契約」</strong>という制度があり、親族分の契約を代わりに行えます。</div>
+      </div>
+      <div class="note-block">
+        <div class="special-card blue">
+          <div class="card-title">⭐ ドコモ代理契約で必要な持ち物</div>
+          ● 代理する方（家族）の身分証 <strong>原本</strong><br>
+          ● ご自身の身分証 <strong>原本</strong><br>
+          ● <strong>委任状</strong>（詳細はご連絡ください）
+        </div>
+      </div>
+    </div>
+
+    <!-- Q家族割 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge green">Q</div>
+        <div class="q-text">家族割・ファミリーは組みますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">ショップにお伝えいただければ組めます！</div>
+      </div>
+      <div class="note-block">
+        <div class="note green">
+          💡 <strong>例）</strong>既にドコモを使っていて、今回もドコモ案件に参加する場合<br>
+          → 既存回線と新規回線で<strong>家族割</strong>が組める<br>
+          → ご自身の毎月の通信費が<strong>安くなってお得</strong>になります ✨
+        </div>
+        <div class="note amber">📩 家族割を希望される場合は事前にご連絡ください。</div>
+      </div>
+    </div>
+
+    <!-- Q家族同行 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge green">Q</div>
+        <div class="q-text">家族も連れていったら、家族も案件できますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content"><span class="em-g">はい！もちろんです！</span></div>
+      </div>
+      <div class="note-block">
+        <div class="note green">
+          🎉 報酬は<strong>人数分アップ</strong>します<br>
+          🎁 <strong>紹介料</strong>もお渡しできます
+        </div>
+        <div class="note amber">📩 ご参加の場合は事前にご連絡ください。</div>
+      </div>
+    </div>
+
+    <!-- Q店員への伝え方 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge green">Q</div>
+        <div class="q-text">入店時、店員に伝えることはありますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">入店したら、まず<strong>「予約した（ご自身の苗字）です。」</strong>とお伝えください。</div>
+      </div>
+    </div>
+
+    <!-- Q箱への記入 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge green">Q</div>
+        <div class="q-text">端末の箱に電話番号や名前を記入するか聞かれた場合はどうしますか？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content"><span class="em-r">一切、何も記入しないようお伝えください。</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ===== SECTION 6: 契約後 ===== -->
+<div class="section">
+  <div class="section-head red">
+    <div class="section-icon red">📝</div>
+    <div class="section-label red">契約後に行うことについて</div>
+  </div>
+  <div class="qa-list">
+
+    <!-- Q解約 -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge red">Q</div>
+        <div class="q-text">解約の仕方はどうすればいいですか？どこで・何を準備すれば？</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">近くのショップで解約できます。<br>事前に<strong>解約したい電話番号</strong>と<strong>ネットワーク暗証番号</strong>を手元に用意してから行ってください。</div>
+      </div>
+      <div class="note-block">
+        <div class="note blue">
+          💻 オンラインで解約できる場合もあります。<br>
+          詳細は<strong>「契約後作業書 ver.1.7」</strong>をご参照ください。
+        </div>
+      </div>
+    </div>
+
+    <!-- QSIMロック -->
+    <div class="qa-item">
+      <div class="q-row">
+        <div class="q-badge red">Q</div>
+        <div class="q-text">契約したSIMを差し込んでも圏外になり、電波が立ちません</div>
+      </div>
+      <div class="a-row">
+        <div class="a-badge">A</div>
+        <div class="a-content">端末に<strong>SIMロック</strong>がかかっている可能性があります。</div>
+      </div>
+      <div class="note-block">
+        <div class="note amber">
+          📌 <strong>SIMロックとは？</strong><br>
+          例）ドコモで購入した機種は、ドコモのSIMしか使えない設定になっています。<br>
+          他社のSIMを使う場合は<strong>SIMロック解除</strong>が必要です。
+        </div>
+        <div class="note blue">
+          🔓 <strong>解除方法</strong><br>
+          ・公式LINEに「SIMロック解除」と入力 → 手順をご案内します<br>
+          ・または「（端末購入先キャリア）SIMロック解除方法」で検索してください 🔍
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  よくある質問 Ver.1.4 ／ 2024年4月6日更新 ／ 1 DAY CAMP
+</div>
+
+</div><!-- /wrapper -->
+</body>
+</html>
